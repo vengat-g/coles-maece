@@ -29,4 +29,8 @@ final class RecipesListViewModel {
         }
     }
     
+    func showDetails(for recipeID: Recipe.ID) {
+        
+    }
+    
 }

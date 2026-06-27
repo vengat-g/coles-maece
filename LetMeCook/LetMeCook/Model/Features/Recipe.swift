@@ -59,19 +59,10 @@ extension Recipe {
     
 }
 
-
-// TODO: ignore - time as minutes for now
-// Enhancement if time permits
-
-/*
-protocol RecipeDetail: Hashable, Equatable {
-    associatedtype Value: Hashable & Equatable
-    var label: String { get }
-    var value: Value { get }
-    var notes: String? { get }
+extension Recipe {
+    
+    var thumbnailURL: URL? {
+        URL(string: "https://coles.com.au/\(thumbnail)")
+    }
+    
 }
-
-extension RecipeDetail {
-    var notes: String? { nil }
-}
-*/
