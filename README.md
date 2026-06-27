@@ -45,4 +45,14 @@ Derived from assumptions or best practices:
 1. Scroll for large sets of data
 2. Network layer
 
+---
 
+### Decision Records:
+
+| Record | Decision | Why | Revisit |
+|:-----|:-----|:-----|:-----|
+| Architecture | MVVM | Given the use case plus testability | When scales |
+| Folder | (L -> R): Models & definitions, Services, View Model, View | No SPM, simple plain folders | When scales move to SPM |
+| Navigation | Simple Navigation | For 2 screens, No NavStack or coordinator pattern |  NavStack preferred targetting iOS 17 & above |
+| Image Caching | AsyncImage with URLCache | Given the data sets | Custom ImageLoader, or others |
+| Pagination | None | Given the data sets | Revisit for larger sets - simple or cursor based |
