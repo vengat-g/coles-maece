@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		84AEF9B02FEF64EA00BE74A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84AEF99A2FEF64E900BE74A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84AEF9A12FEF64E900BE74A0;
+			remoteInfo = LetMeCook;
+		};
+		84AEF9BA2FEF64EA00BE74A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84AEF99A2FEF64E900BE74A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84AEF9A12FEF64E900BE74A0;
+			remoteInfo = LetMeCook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84AEF9A22FEF64E900BE74A0 /* LetMeCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetMeCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84AEF9AF2FEF64EA00BE74A0 /* LetMeCookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetMeCookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84AEF9B92FEF64EA00BE74A0 /* LetMeCookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetMeCookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		84AEF9A42FEF64E900BE74A0 /* LetMeCook */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LetMeCook;
+			sourceTree = "<group>";
+		};
+		84AEF9B22FEF64EA00BE74A0 /* LetMeCookTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LetMeCookTests;
+			sourceTree = "<group>";
+		};
+		84AEF9BC2FEF64EA00BE74A0 /* LetMeCookUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LetMeCookUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84AEF99F2FEF64E900BE74A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		84AEF9AC2FEF64EA00BE74A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		84AEF9B62FEF64EA00BE74A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84AEF9992FEF64E900BE74A0 = {
+			isa = PBXGroup;
+			children = (
+				84AEF9A42FEF64E900BE74A0 /* LetMeCook */,
+				84AEF9B22FEF64EA00BE74A0 /* LetMeCookTests */,
+				84AEF9BC2FEF64EA00BE74A0 /* LetMeCookUITests */,
+				84AEF9A32FEF64E900BE74A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84AEF9A32FEF64E900BE74A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84AEF9A22FEF64E900BE74A0 /* LetMeCook.app */,
+				84AEF9AF2FEF64EA00BE74A0 /* LetMeCookTests.xctest */,
+				84AEF9B92FEF64EA00BE74A0 /* LetMeCookUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84AEF9A12FEF64E900BE74A0 /* LetMeCook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84AEF9C12FEF64EA00BE74A0 /* Build configuration list for PBXNativeTarget "LetMeCook" */;
+			buildPhases = (
+				84AEF99E2FEF64E900BE74A0 /* Sources */,
+				84AEF99F2FEF64E900BE74A0 /* Frameworks */,
+				84AEF9A02FEF64E900BE74A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				84AEF9A42FEF64E900BE74A0 /* LetMeCook */,
+			);
+			name = LetMeCook;
+			productName = LetMeCook;
+			productReference = 84AEF9A22FEF64E900BE74A0 /* LetMeCook.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84AEF9AE2FEF64EA00BE74A0 /* LetMeCookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84AEF9C42FEF64EA00BE74A0 /* Build configuration list for PBXNativeTarget "LetMeCookTests" */;
+			buildPhases = (
+				84AEF9AB2FEF64EA00BE74A0 /* Sources */,
+				84AEF9AC2FEF64EA00BE74A0 /* Frameworks */,
+				84AEF9AD2FEF64EA00BE74A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84AEF9B12FEF64EA00BE74A0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				84AEF9B22FEF64EA00BE74A0 /* LetMeCookTests */,
+			);
+			name = LetMeCookTests;
+			productName = LetMeCookTests;
+			productReference = 84AEF9AF2FEF64EA00BE74A0 /* LetMeCookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		84AEF9B82FEF64EA00BE74A0 /* LetMeCookUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84AEF9C72FEF64EA00BE74A0 /* Build configuration list for PBXNativeTarget "LetMeCookUITests" */;
+			buildPhases = (
+				84AEF9B52FEF64EA00BE74A0 /* Sources */,
+				84AEF9B62FEF64EA00BE74A0 /* Frameworks */,
+				84AEF9B72FEF64EA00BE74A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84AEF9BB2FEF64EA00BE74A0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				84AEF9BC2FEF64EA00BE74A0 /* LetMeCookUITests */,
+			);
+			name = LetMeCookUITests;
+			productName = LetMeCookUITests;
+			productReference = 84AEF9B92FEF64EA00BE74A0 /* LetMeCookUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84AEF99A2FEF64E900BE74A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					84AEF9A12FEF64E900BE74A0 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					84AEF9AE2FEF64EA00BE74A0 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 84AEF9A12FEF64E900BE74A0;
+					};
+					84AEF9B82FEF64EA00BE74A0 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 84AEF9A12FEF64E900BE74A0;
+					};
+				};
+			};
+			buildConfigurationList = 84AEF99D2FEF64E900BE74A0 /* Build configuration list for PBXProject "LetMeCook" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84AEF9992FEF64E900BE74A0;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 84AEF9A32FEF64E900BE74A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84AEF9A12FEF64E900BE74A0 /* LetMeCook */,
+				84AEF9AE2FEF64EA00BE74A0 /* LetMeCookTests */,
+				84AEF9B82FEF64EA00BE74A0 /* LetMeCookUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84AEF9A02FEF64E900BE74A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		84AEF9AD2FEF64EA00BE74A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		84AEF9B72FEF64EA00BE74A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84AEF99E2FEF64E900BE74A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		84AEF9AB2FEF64EA00BE74A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		84AEF9B52FEF64EA00BE74A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84AEF9B12FEF64EA00BE74A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84AEF9A12FEF64E900BE74A0 /* LetMeCook */;
+			targetProxy = 84AEF9B02FEF64EA00BE74A0 /* PBXContainerItemProxy */;
+		};
+		84AEF9BB2FEF64EA00BE74A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84AEF9A12FEF64E900BE74A0 /* LetMeCook */;
+			targetProxy = 84AEF9BA2FEF64EA00BE74A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		84AEF9BF2FEF64EA00BE74A0 /* Debug configuration for PBXProject "LetMeCook" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84AEF9C02FEF64EA00BE74A0 /* Release configuration for PBXProject "LetMeCook" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84AEF9C22FEF64EA00BE74A0 /* Debug configuration for PBXNativeTarget "LetMeCook" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vg.LetMeCook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84AEF9C32FEF64EA00BE74A0 /* Release configuration for PBXNativeTarget "LetMeCook" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vg.LetMeCook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84AEF9C52FEF64EA00BE74A0 /* Debug configuration for PBXNativeTarget "LetMeCookTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vg.LetMeCookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LetMeCook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LetMeCook";
+			};
+			name = Debug;
+		};
+		84AEF9C62FEF64EA00BE74A0 /* Release configuration for PBXNativeTarget "LetMeCookTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vg.LetMeCookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LetMeCook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LetMeCook";
+			};
+			name = Release;
+		};
+		84AEF9C82FEF64EA00BE74A0 /* Debug configuration for PBXNativeTarget "LetMeCookUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vg.LetMeCookUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LetMeCook;
+			};
+			name = Debug;
+		};
+		84AEF9C92FEF64EA00BE74A0 /* Release configuration for PBXNativeTarget "LetMeCookUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FHF8P4BXB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vg.LetMeCookUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LetMeCook;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84AEF99D2FEF64E900BE74A0 /* Build configuration list for PBXProject "LetMeCook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84AEF9BF2FEF64EA00BE74A0 /* Debug configuration for PBXProject "LetMeCook" */,
+				84AEF9C02FEF64EA00BE74A0 /* Release configuration for PBXProject "LetMeCook" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		84AEF9C12FEF64EA00BE74A0 /* Build configuration list for PBXNativeTarget "LetMeCook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84AEF9C22FEF64EA00BE74A0 /* Debug configuration for PBXNativeTarget "LetMeCook" */,
+				84AEF9C32FEF64EA00BE74A0 /* Release configuration for PBXNativeTarget "LetMeCook" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		84AEF9C42FEF64EA00BE74A0 /* Build configuration list for PBXNativeTarget "LetMeCookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84AEF9C52FEF64EA00BE74A0 /* Debug configuration for PBXNativeTarget "LetMeCookTests" */,
+				84AEF9C62FEF64EA00BE74A0 /* Release configuration for PBXNativeTarget "LetMeCookTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		84AEF9C72FEF64EA00BE74A0 /* Build configuration list for PBXNativeTarget "LetMeCookUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84AEF9C82FEF64EA00BE74A0 /* Debug configuration for PBXNativeTarget "LetMeCookUITests" */,
+				84AEF9C92FEF64EA00BE74A0 /* Release configuration for PBXNativeTarget "LetMeCookUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84AEF99A2FEF64E900BE74A0 /* Project object */;
+	validationLevel = 1;
+}

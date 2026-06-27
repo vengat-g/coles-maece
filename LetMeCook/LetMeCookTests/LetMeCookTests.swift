@@ -1,0 +1,19 @@
+//
+//  LetMeCookTests.swift
+//  LetMeCookTests
+//
+//  Created by Vengatesan Ganesan on 27/6/2026.
+//
+
+import Testing
+@testable import LetMeCook
+
+struct LetMeCookTests {
+
+    @Test func example() async throws {
+        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+        // Swift Testing Documentation
+        // https://developer.apple.com/documentation/testing
+    }
+
+}
