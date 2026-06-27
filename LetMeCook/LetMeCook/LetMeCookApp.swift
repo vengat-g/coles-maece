@@ -9,9 +9,26 @@ import SwiftUI
 
 @main
 struct LetMeCookApp: App {
+    
+    private let configuration = AppConfiguration(recipeService: FileRecipeService())
+    
     var body: some Scene {
         WindowGroup {
-            RecipeListView()
+            LetMeCookRootView()
+                .environment(configuration)
         }
     }
+    
+}
+
+// MARK: - Root View
+
+struct LetMeCookRootView: View {
+    
+    @Environment(AppConfiguration.self) private var configuration
+    
+    var body: some View {
+        RecipeListView(viewModel: configuration.makeRecipeListViewModel())
+    }
+    
 }

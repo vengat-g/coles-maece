@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum FileRecipeServiceError: Error {
-    case recipeNotFound
-}
-
 final class FileRecipeService: RecipeService {
     
     func fetchAll() async throws -> [Recipe] {

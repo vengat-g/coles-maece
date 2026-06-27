@@ -9,26 +9,45 @@ import SwiftUI
 
 struct RecipeListView: View {
     
+    var viewModel: RecipesListViewModel
+    
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    NavigationLink(value: 1) {
-                        RecipeCardView(imageURL: imageURL)
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(viewModel.recipes, id: \.id) { recipe in
+                            NavigationLink(value: recipe.id) {
+                                RecipeCardView(recipe: recipe)
+                            }
+                            .buttonStyle(.plain)
+                        }
                     }
-                    .buttonStyle(.plain)
-                    RecipeCardView(imageURL: imageURL)
-                    RecipeCardView(imageURL: imageURL)
-                    RecipeCardView(imageURL: imageURL)
+                    .padding()
                 }
-                .padding()
+                .navigationTitle("Recipe List")
+                .navigationDestination(for: Recipe.ID.self) { recipieID in
+                    if let vm = try? viewModel.selectedRecipeDetails(for: recipieID) {
+                        RecipeDetailsView(viewModel: vm)
+                    } else {
+                        Text("Recipe not found alert")
+                    }
+                }
             }
-            .navigationTitle("Recipe List")
-            .navigationDestination(for: Int.self) { val in
-                RecipeDetailsView()
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchRecipes()
+            }
+        }
+        .refreshable {
+            Task {
+                await viewModel.fetchRecipes()
             }
         }
     }
@@ -56,5 +75,6 @@ private extension RecipeListView {
 }
 
 #Preview {
-    RecipeListView()
+    let viewModel = RecipesListViewModel(service: FileRecipeService())
+    RecipeListView(viewModel: viewModel)
 }

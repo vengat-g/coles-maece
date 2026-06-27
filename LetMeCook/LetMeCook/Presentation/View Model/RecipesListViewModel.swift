@@ -7,8 +7,15 @@
 
 import Foundation
 
+@MainActor
 @Observable
 final class RecipesListViewModel {
+    
+    // MARK: States
+    
+    private(set) var isLoading = false
+    private(set) var recipes: [Recipe] = []
+    
     
     // MARK: - Injected
     
@@ -21,16 +28,34 @@ final class RecipesListViewModel {
     // MARK: - Public APIs
     
     func fetchRecipes() async {
+        isLoading = true
         do {
-            let recipes = try await service.fetchAll()
-            print(recipes)
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+            recipes = try await service.fetchAll()
+            isLoading = false
         } catch {
+            isLoading = false
+            // log
             print(error.localizedDescription)
         }
     }
     
-    func showDetails(for recipeID: Recipe.ID) {
-        
+    func selectedRecipeDetails(for recipeID: Recipe.ID) throws -> RecipeDetailsViewModel {
+        guard let selectedRecipe = recipes.first(where: { $0.id == recipeID }) else {
+            throw Failure.recipeNotFound
+        }
+        return RecipeDetailsViewModel(recipe: selectedRecipe)
+    }
+    
+}
+
+// MARK: - Helpers
+
+extension RecipesListViewModel {
+    
+    enum Failure: Error {
+        case recipeNotFound
+        case unableToFetchRecipes
     }
     
 }
