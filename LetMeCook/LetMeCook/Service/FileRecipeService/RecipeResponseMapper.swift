@@ -24,7 +24,7 @@ extension Recipe {
 extension Recipe.Details {
     
     init(from response: RecipeResponse.DetailsResponse) {
-        self.serves = Recipe.ServesDetail(label: response.amountLabel, value: response.amountNumber)
+        self.serves = Recipe.ServesDetail(label: response.amountLabel, value: String(response.amountNumber))
         self.prep = Recipe.PrepDetail(label: response.prepLabel ?? "", value: response.prepTime, notes: response.prepNote)
         self.cooking = Recipe.CookingDetail(label: response.cookingLabel, value: response.cookingTime)
     }

@@ -14,8 +14,15 @@ final class RecipesListViewModel {
     // MARK: States
     
     private(set) var isLoading = false
+    private(set) var cardLabel = "RECIPE"
+    
+    // MARK: Data
+    
     private(set) var recipes: [Recipe] = []
     
+    var groupedRecipes: [String: [Recipe]] { recipes.groupByServes() }
+    
+    var recipesByServeSize: [String] { groupedRecipes.keys.sorted() }
     
     // MARK: - Injected
     
@@ -47,6 +54,14 @@ final class RecipesListViewModel {
         return RecipeDetailsViewModel(recipe: selectedRecipe)
     }
     
+    func recipes(for serveSize: String) -> [Recipe] {
+        guard let recipes = groupedRecipes[serveSize] else {
+            // log error, no need to disrupt UI.
+            return []
+        }
+        return recipes
+    }
+    
 }
 
 // MARK: - Helpers
@@ -58,4 +73,11 @@ extension RecipesListViewModel {
         case unableToFetchRecipes
     }
     
+}
+
+
+private extension Array where Element == Recipe {
+    func groupByServes() -> [String: [Recipe]] {
+        Dictionary(grouping: self, by: \.details.serves.value)
+    }
 }

@@ -30,7 +30,7 @@ extension RecipeDetailsViewModel {
     var ingredients: [String] { recipe.ingredients }
     
     var serves: (title: String, value: String) {
-        (recipe.details.serves.label, String(recipe.details.serves.value))
+        (recipe.details.serves.label, recipe.details.serves.value)
     }
     
     var prep: (title: String, value: String) {

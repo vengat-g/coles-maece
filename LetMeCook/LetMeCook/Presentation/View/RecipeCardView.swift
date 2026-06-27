@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeCardView: View {
     
+    @State var cardTitle: String
     @State var recipe: Recipe
 
     var body: some View {
@@ -25,7 +26,7 @@ struct RecipeCardView: View {
             .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
             .clipShape(RoundedRectangle(cornerRadius: 8))
 
-            Text("RECIPE")
+            Text(cardTitle)
                 .foregroundStyle(.red)
                 .font(.caption)
                 .fontWeight(.bold)
@@ -37,3 +38,6 @@ struct RecipeCardView: View {
     }
 }
 
+#Preview {
+    RecipeCardView(cardTitle: "RECIPE", recipe: StubRecipes.mockOne)
+}

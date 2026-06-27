@@ -43,7 +43,7 @@ extension Recipe {
     
     struct ServesDetail {
         let label: String
-        let value: Int32
+        let value: String
     }
     
     struct PrepDetail {

@@ -20,12 +20,20 @@ struct RecipeListView: View {
                 ProgressView()
             } else {
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(viewModel.recipes, id: \.id) { recipe in
-                            NavigationLink(value: recipe.id) {
-                                RecipeCardView(recipe: recipe)
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
+                        ForEach(viewModel.recipesByServeSize, id: \.self) { serveSize in
+                            Section {
+                                let recipes = viewModel.recipes(for: serveSize)
+                                ForEach(recipes, id: \.id) { recipe in
+                                    NavigationLink(value: recipe.id) {
+                                        RecipeCardView(cardTitle: viewModel.cardLabel, recipe: recipe)
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                            } header: {
+                                Text("Serves: \(serveSize)")
+                                    .font(.headline)
                             }
-                            .buttonStyle(.plain)
                         }
                     }
                     .padding()

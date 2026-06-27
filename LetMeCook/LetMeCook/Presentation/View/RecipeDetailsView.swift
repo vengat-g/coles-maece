@@ -70,6 +70,7 @@ struct RecipeDetailsView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
+                .padding(.horizontal, 24)
                 
                 Divider()
                 VStack(alignment: .leading, spacing: 16) {
