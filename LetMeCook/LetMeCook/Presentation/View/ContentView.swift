@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var viewModel = RecipesListViewModel(service: FileRecipeService(decoder: JSONDecoder()))
+    var viewModel = RecipesListViewModel(service: FileRecipeService())
     var body: some View {
         VStack {
             Image(systemName: "globe")

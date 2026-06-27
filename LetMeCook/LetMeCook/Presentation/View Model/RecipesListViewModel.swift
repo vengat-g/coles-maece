@@ -22,9 +22,8 @@ final class RecipesListViewModel {
     
     func fetchRecipes() async {
         do {
-            let recipes = try await service.fetchAll(forceRefresh: true)
+            let recipes = try await service.fetchAll()
             print(recipes)
-            
         } catch {
             print(error.localizedDescription)
         }

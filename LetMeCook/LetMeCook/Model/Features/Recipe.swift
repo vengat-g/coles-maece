@@ -12,7 +12,7 @@ struct Recipe {
     let id: UUID
     
     let title: String
-    let description: String
+    let description: String?
     let thumbnail: String
     let thumbnailAlt: String
     

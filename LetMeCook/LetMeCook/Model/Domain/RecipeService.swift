@@ -7,8 +7,6 @@
 
 protocol RecipeService {
     
-    func fetchAll(forceRefresh: Bool) async throws -> [Recipe]
-    
-    func fetchRecipe(_ id: Recipe.ID) async throws -> Recipe.Details
+    func fetchAll() async throws -> [Recipe]
     
 }

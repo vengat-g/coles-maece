@@ -9,7 +9,7 @@ import Foundation
 
 extension Recipe {
     
-    nonisolated init(from response: RecipeResponse) {
+    init(from response: RecipeResponse) {
         self.id = UUID()
         self.title = response.dynamicTitle
         self.description = response.dynamicDescription
@@ -23,7 +23,7 @@ extension Recipe {
 
 extension Recipe.Details {
     
-    nonisolated init(from response: RecipeResponse.DetailsResponse) {
+    init(from response: RecipeResponse.DetailsResponse) {
         self.serves = Recipe.ServesDetail(label: response.amountLabel, value: response.amountNumber)
         self.prep = Recipe.PrepDetail(label: response.prepLabel ?? "", value: response.prepTime, notes: response.prepNote)
         self.cooking = Recipe.CookingDetail(label: response.cookingLabel, value: response.cookingTime)

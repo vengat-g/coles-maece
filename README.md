@@ -56,3 +56,9 @@ Derived from assumptions or best practices:
 | Navigation | Simple Navigation | For 2 screens, No NavStack or coordinator pattern |  NavStack preferred targetting iOS 17 & above |
 | Image Caching | AsyncImage with URLCache | Given the data sets | Custom ImageLoader, or others |
 | Pagination | None | Given the data sets | Revisit for larger sets - simple or cursor based |
+
+### Observations:
+
+#### Json contains invalid characters
+- Implement Lossy Field [ref: Swift by Sundell](https://www.swiftbysundell.com/articles/ignoring-invalid-json-elements-codable/)
+- fail gracefully, as the data quality is mostly good.

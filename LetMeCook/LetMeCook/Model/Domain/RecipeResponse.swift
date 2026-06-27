@@ -16,7 +16,10 @@ struct RecipeListResponse: Decodable {
 struct RecipeResponse: Decodable {
     
     let dynamicTitle: String
-    let dynamicDescription: String
+    
+    @LossyField
+    var dynamicDescription: String?
+    
     let dynamicThumbnail: String
     let dynamicThumbnailAlt: String
     
