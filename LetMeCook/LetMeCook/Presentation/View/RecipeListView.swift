@@ -13,14 +13,23 @@ struct RecipeListView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 16) {
-                RecipeCardView(imageURL: imageURL)
-                RecipeCardView(imageURL: imageURL)
-                RecipeCardView(imageURL: imageURL)
-                RecipeCardView(imageURL: imageURL)
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 16) {
+                    NavigationLink(value: 1) {
+                        RecipeCardView(imageURL: imageURL)
+                    }
+                    .buttonStyle(.plain)
+                    RecipeCardView(imageURL: imageURL)
+                    RecipeCardView(imageURL: imageURL)
+                    RecipeCardView(imageURL: imageURL)
+                }
+                .padding()
             }
-            .padding()
+            .navigationTitle("Recipe List")
+            .navigationDestination(for: Int.self) { val in
+                RecipeDetailsView()
+            }
         }
     }
 }
