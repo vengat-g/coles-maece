@@ -56,6 +56,21 @@
 
 ---
 
+
+### AI Coding Assistant:
+
+Tools : Claude Code integrated with Xcode
+
+- Use for reasearch, quick fix, analysing warnings & issues.
+  * concurrency related issues when trying to make service as an `actor`
+  * Swift Tests API reference guides using XCTest references.
+- Explore better options or alternatives for finding solutions to the problem.
+  * Lossy fields
+  * Dependency container and other options from root view for cold start. 
+- Reviewing my code
+  * Catch bugs - json illegal chars, field codable typos
+  * Analyse for performance, code quality
+
 ##  Requirements:
 
 <details>
@@ -118,6 +133,6 @@ Derived from assumptions or best practices:
   ```log
   Potential Structural Swift Concurrency Issue: unsafeForcedSync called from Swift Concurrent context.
   ```
-- [ ] Convert service into actor
+- [ ] Convert service into actor - ?
 - [ ] Check for task cancellation
 - [ ] Add a UI Test
