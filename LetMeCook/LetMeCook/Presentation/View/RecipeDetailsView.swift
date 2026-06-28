@@ -40,35 +40,11 @@ struct RecipeDetailsView: View {
                 Divider()
                 
                 HStack(alignment: .center) {
-                    VStack(spacing: 8) {
-                        Text(viewModel.serves.title)
-                            .foregroundStyle(.secondary)
-                        
-                        Text(viewModel.serves.value)
-                            .foregroundStyle(.primary)
-                            .fontWeight(.bold)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    RecipeStatView(title: viewModel.serves.title, value: viewModel.serves.value)
                     Divider()
-                    VStack(spacing: 8) {
-                        Text(viewModel.prep.title)
-                            .foregroundStyle(.secondary)
-                        
-                        Text(viewModel.prep.value)
-                            .foregroundStyle(.primary)
-                            .fontWeight(.bold)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .center)
+                    RecipeStatView(title: viewModel.prep.title, value: viewModel.prep.value)
                     Divider()
-                    VStack(spacing: 8) {
-                        Text(viewModel.cooking.title)
-                            .foregroundStyle(.secondary)
-                        
-                        Text(viewModel.cooking.value)
-                            .foregroundStyle(.primary)
-                            .fontWeight(.bold)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    RecipeStatView(title: viewModel.cooking.title, value: viewModel.cooking.value)
                 }
                 .padding(.horizontal, 24)
                 
