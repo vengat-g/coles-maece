@@ -20,10 +20,8 @@ final class RecipesListViewModel {
     // MARK: Data
     
     private(set) var recipes: [Recipe] = []
-    
-    var groupedRecipes: [String: [Recipe]] { recipes.groupByServes() }
-    
-    var recipesByServeSize: [String] { groupedRecipes.keys.sorted() }
+    private(set) var groupedRecipes: [String: [Recipe]] = [:]
+    private(set) var recipesByServeSize: [String] = []
     
     // MARK: - Injected
     
@@ -37,11 +35,12 @@ final class RecipesListViewModel {
     
     func fetchRecipes() async {
         isLoading = true
+        defer { isLoading = false }
         do {
             recipes = try await service.fetchAll()
-            isLoading = false
+            groupedRecipes = recipes.groupByServes()
+            recipesByServeSize = groupedRecipes.keys.sorted()
         } catch {
-            isLoading = false
             // log
             errorMessage = "Something went wrong. Please try again."
         }
