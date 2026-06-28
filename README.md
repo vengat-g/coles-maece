@@ -60,5 +60,15 @@ Derived from assumptions or best practices:
 ### Observations:
 
 #### Json contains invalid characters
-- Implement Lossy Field [ref: Swift by Sundell](https://www.swiftbysundell.com/articles/ignoring-invalid-json-elements-codable/)
 - fail gracefully, as the data quality is mostly good.
+
+#### TODO
+
+- [x] Implement Lossy Field [ref: Swift by Sundell](https://www.swiftbysundell.com/articles/ignoring-invalid-json-elements-codable/)
+- [ ] Fix Voice Over in Details 
+- [ ] Runtime: Symbolic break point on `unsafeForcedSync`
+  ```log
+  Potential Structural Swift Concurrency Issue: unsafeForcedSync called from Swift Concurrent context.
+  ```
+- [ ] Convert service into actor
+- [ ] Check for task cancellation
