@@ -35,6 +35,25 @@
 | Image Caching | AsyncImage with URLCache | Given the data sets | Custom ImageLoader, or others |
 | Pagination | None | Given the data sets | Revisit for larger sets - simple or cursor based |
 
+### Folder Structure:
+
+<img src='./Resources/folder-structure.png' align='right' width="50%"/>
+
+```bash
+.
+├── Model
+│   ├── App
+│   ├── Data
+│   ├── Domain
+│   └── Features
+├── Presentation
+│   ├── View
+│   └── View Model
+├── Service
+│   └── FileRecipeService
+└── Toolbox
+```
+
 ---
 
 ##  Requirements:
