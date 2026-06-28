@@ -16,10 +16,11 @@ struct RecipeListView: View {
 
     var body: some View {
         NavigationStack {
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
-                ScrollView {
+            ScrollView {
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                } else {
                     LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
                         ForEach(viewModel.recipesByServeSize, id: \.self) { serveSize in
                             Section {
@@ -35,9 +36,10 @@ struct RecipeListView: View {
                                     .font(.headline)
                             }
                         }
+                        
                     }
-                    .padding()
                 }
+                .padding()
                 .navigationTitle("Recipe List")
                 .navigationDestination(for: Recipe.ID.self) { recipeID in
                     if let vm = try? viewModel.selectedRecipeDetails(for: recipeID) {
