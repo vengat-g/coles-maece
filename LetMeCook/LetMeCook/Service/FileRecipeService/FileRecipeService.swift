@@ -7,11 +7,27 @@
 
 import Foundation
 
+enum FileRecipeServiceError: Error {
+    case failedToLoadData(String)
+}
+
 final class FileRecipeService: RecipeService {
     
+    private let data: Data
+    
+    init(data: Data = StubRecipes.data) {
+        self.data = data
+    }
+    
     func fetchAll() async throws -> [Recipe] {
-        let response = try JSONDecoder().decode(RecipeListResponse.self, from: StubRecipes.data)
-        return response.recipes.map { Recipe.init(from: $0) }
+        do {
+            let response = try JSONDecoder().decode(RecipeListResponse.self, from: data)
+            return response.recipes.map { Recipe.init(from: $0) }
+        } catch {
+            throw FileRecipeServiceError.failedToLoadData(error.localizedDescription)
+        }
     }
     
 }
+
+extension FileRecipeServiceError: Equatable {}
