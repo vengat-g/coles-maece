@@ -15,6 +15,7 @@ final class RecipesListViewModel {
     
     private(set) var isLoading = false
     private(set) var cardLabel = "RECIPE"
+    private(set) var errorMessage: String?
     
     // MARK: Data
     
@@ -37,13 +38,12 @@ final class RecipesListViewModel {
     func fetchRecipes() async {
         isLoading = true
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000)
             recipes = try await service.fetchAll()
             isLoading = false
         } catch {
             isLoading = false
             // log
-            print(error.localizedDescription)
+            errorMessage = "Something went wrong. Please try again."
         }
     }
     
@@ -68,7 +68,7 @@ final class RecipesListViewModel {
 
 extension RecipesListViewModel {
     
-    enum Failure: Error {
+    enum Failure: Error, Equatable {
         case recipeNotFound
         case unableToFetchRecipes
     }
