@@ -63,10 +63,6 @@ struct RecipeListView: View {
 
 private extension RecipeListView {
 
-    var imageURL: URL? {
-        URL(string: "https://coles.com.au/content/dam/coles/inspire-create/thumbnails/Lamb-and-hasselback-pumpkin-480x288.jpg")
-    }
-    
     var columns: [GridItem] {
         if verticalSizeClass == .compact {
             // iPhone landscape

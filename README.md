@@ -10,7 +10,38 @@
 
 ---
 
+## Media:
+
+![coles recipe app](./Resources/coles-maece.png)
+
+<details>
+<summary>Feature Walkthrough</summary>
+
+| All Features | Orientation Change |
+|-----|-----|
+| <video src="./Resources/lmc-walkthrough-01.MP4" /> | <video src="./Resources/lmc-walkthrough-02.MP4" /> |
+
+</details>
+
+---
+
+## Decision Records:
+
+| Record | Decision | Why | Revisit |
+|:-----|:-----|:-----|:-----|
+| Architecture | MVVM | Given the use case plus testability | When scales |
+| Folder | (L -> R): Models & definitions, Services, View Model, View | No SPM, simple plain folders | When scales move to SPM |
+| Navigation | Simple Navigation Stack | For 2 screens, No NavStack path or coordinator pattern |  NavStack preferred path when scales |
+| Image Caching | AsyncImage with URLCache | Given the data sets | Custom ImageLoader, or others |
+| Pagination | None | Given the data sets | Revisit for larger sets - simple or cursor based |
+
+---
+
 ##  Requirements:
+
+<details>
+<summary>Functional Requirements</summary>
+
 ### Functional
 1. Consume the json from the given file. See [recipesSample.json](Resources/recipesSample.json).
 2. Follow Design Guidelines for the app layout. See [design-ref](Resources/design-ref.png).
@@ -32,7 +63,13 @@ Implement one of the following, with accompanying unit tests:
 3.	Filter recipes by a maximum cooking time
 4.	Parse and normalise time strings (e.g. "2h 20m" → minutes)
 
+</details>
+
 ### Non Functional Requirements:
+
+<details>
+<summary>Non-Functional Requirements</summary>
+
 Derived from assumptions or best practices:
 1. Cold start `< 1 s` | Simple at first, revist for LIVE APIs
 2. Device Types - iOS (assumed) | Clarify - iPad, Mac App ?
@@ -45,24 +82,16 @@ Derived from assumptions or best practices:
 1. Scroll for large sets of data
 2. Network layer
 
+</details>
+
 ---
 
-### Decision Records:
+## Observations:
 
-| Record | Decision | Why | Revisit |
-|:-----|:-----|:-----|:-----|
-| Architecture | MVVM | Given the use case plus testability | When scales |
-| Folder | (L -> R): Models & definitions, Services, View Model, View | No SPM, simple plain folders | When scales move to SPM |
-| Navigation | Simple Navigation | For 2 screens, No NavStack or coordinator pattern |  NavStack preferred targetting iOS 17 & above |
-| Image Caching | AsyncImage with URLCache | Given the data sets | Custom ImageLoader, or others |
-| Pagination | None | Given the data sets | Revisit for larger sets - simple or cursor based |
-
-### Observations:
-
-#### Json contains invalid characters
+### Json contains invalid characters
 - fail gracefully, as the data quality is mostly good.
 
-#### TODO
+### TODO
 
 - [x] Implement Lossy Field [ref: Swift by Sundell](https://www.swiftbysundell.com/articles/ignoring-invalid-json-elements-codable/)
 - [ ] Fix Voice Over in Details 
@@ -72,3 +101,4 @@ Derived from assumptions or best practices:
   ```
 - [ ] Convert service into actor
 - [ ] Check for task cancellation
+- [ ] Add a UI Test
