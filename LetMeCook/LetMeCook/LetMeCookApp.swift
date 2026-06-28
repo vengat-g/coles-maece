@@ -26,9 +26,17 @@ struct LetMeCookApp: App {
 struct LetMeCookRootView: View {
     
     @Environment(AppConfiguration.self) private var configuration
+    @State private var viewModel: RecipesListViewModel?
     
     var body: some View {
-        RecipeListView(viewModel: configuration.makeRecipeListViewModel())
+        Group {
+            if let viewModel {
+                RecipeListView(viewModel: viewModel)
+            }
+        }
+        .onAppear {
+            viewModel = configuration.makeRecipeListViewModel()
+        }
     }
     
 }
