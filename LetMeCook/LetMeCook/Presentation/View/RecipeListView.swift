@@ -17,11 +17,10 @@ struct RecipeListView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                
                 if viewModel.isLoading {
                     ProgressView()
                 } else {
-                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16, pinnedViews: [.sectionHeaders]) {
                         ForEach(viewModel.recipesByServeSize, id: \.self) { serveSize in
                             Section {
                                 let recipes = viewModel.recipes(for: serveSize)
@@ -38,14 +37,14 @@ struct RecipeListView: View {
                         }
                         
                     }
-                }
-                .padding()
-                .navigationTitle("Recipe List")
-                .navigationDestination(for: Recipe.ID.self) { recipeID in
-                    if let vm = try? viewModel.selectedRecipeDetails(for: recipeID) {
-                        RecipeDetailsView(viewModel: vm)
-                    } else {
-                        Text("Recipe not found alert")
+                    .padding()
+                    .navigationTitle("Recipe List")
+                    .navigationDestination(for: Recipe.ID.self) { recipeID in
+                        if let vm = try? viewModel.selectedRecipeDetails(for: recipeID) {
+                            RecipeDetailsView(viewModel: vm)
+                        } else {
+                            Text("Recipe not found alert")
+                        }
                     }
                 }
             }
