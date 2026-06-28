@@ -39,8 +39,8 @@ struct RecipeListView: View {
                     .padding()
                 }
                 .navigationTitle("Recipe List")
-                .navigationDestination(for: Recipe.ID.self) { recipieID in
-                    if let vm = try? viewModel.selectedRecipeDetails(for: recipieID) {
+                .navigationDestination(for: Recipe.ID.self) { recipeID in
+                    if let vm = try? viewModel.selectedRecipeDetails(for: recipeID) {
                         RecipeDetailsView(viewModel: vm)
                     } else {
                         Text("Recipe not found alert")
@@ -54,9 +54,7 @@ struct RecipeListView: View {
             }
         }
         .refreshable {
-            Task {
-                await viewModel.fetchRecipes()
-            }
+            await viewModel.fetchRecipes()
         }
     }
 }
