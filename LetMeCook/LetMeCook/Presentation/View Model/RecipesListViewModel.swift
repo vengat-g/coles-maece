@@ -14,8 +14,9 @@ final class RecipesListViewModel {
     // MARK: States
     
     private(set) var isLoading = false
-    private(set) var cardLabel = "RECIPE"
     private(set) var errorMessage: String?
+    
+    let cardLabel = "RECIPE"
     
     // MARK: Data
     
@@ -70,6 +71,14 @@ extension RecipesListViewModel {
     enum Failure: Error, Equatable {
         case recipeNotFound
         case unableToFetchRecipes
+    }
+    
+}
+
+extension Recipe {
+    
+    var thumbnailURL: URL? {
+        URL(string: "https://coles.com.au/\(thumbnail)")
     }
     
 }

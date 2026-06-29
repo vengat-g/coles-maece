@@ -10,11 +10,12 @@ import SwiftUI
 struct RecipeCardView: View {
     
     let cardTitle: String
-    let recipe: Recipe
+    let recipeTitle: String
+    let recipeImageURL: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            AsyncImage(url: recipe.thumbnailURL) { image in
+            AsyncImage(url: recipeImageURL) { image in
                 image.resizable()
                     .aspectRatio(contentMode: .fill)
             } placeholder: {
@@ -31,7 +32,7 @@ struct RecipeCardView: View {
                 .font(.caption)
                 .fontWeight(.bold)
 
-            Text(recipe.title)
+            Text(recipeTitle)
                 .foregroundStyle(.primary)
                 .font(.subheadline)
         }
@@ -39,5 +40,9 @@ struct RecipeCardView: View {
 }
 
 #Preview {
-    RecipeCardView(cardTitle: "RECIPE", recipe: StubRecipes.mockOne)
+    RecipeCardView(
+        cardTitle: "RECIPE",
+        recipeTitle: StubRecipes.mockOne.title,
+        recipeImageURL: URL(string: "https://coles.com.au/\(StubRecipes.mockOne.thumbnail)")
+    )
 }

@@ -10,12 +10,9 @@ import SwiftUI
 @main
 struct LetMeCookApp: App {
     
-    private let configuration = AppConfiguration(recipeService: FileRecipeService())
-    
     var body: some Scene {
         WindowGroup {
             LetMeCookRootView()
-                .environment(configuration)
         }
     }
     
@@ -25,18 +22,10 @@ struct LetMeCookApp: App {
 
 struct LetMeCookRootView: View {
     
-    @Environment(AppConfiguration.self) private var configuration
-    @State private var viewModel: RecipesListViewModel?
+    @State private var viewModel = RecipesListViewModel(service: FileRecipeService())
     
     var body: some View {
-        Group {
-            if let viewModel {
-                RecipeListView(viewModel: viewModel)
-            }
-        }
-        .onAppear {
-            viewModel = configuration.makeRecipeListViewModel()
-        }
+        RecipeListView(viewModel: viewModel)
     }
     
 }

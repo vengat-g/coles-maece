@@ -26,7 +26,11 @@ struct RecipeListView: View {
                                 let recipes = viewModel.recipes(for: serveSize)
                                 ForEach(recipes, id: \.id) { recipe in
                                     NavigationLink(value: recipe.id) {
-                                        RecipeCardView(cardTitle: viewModel.cardLabel, recipe: recipe)
+                                        RecipeCardView(
+                                            cardTitle: viewModel.cardLabel,
+                                            recipeTitle: recipe.title,
+                                            recipeImageURL: recipe.thumbnailURL
+                                        )
                                     }
                                     .buttonStyle(.plain)
                                 }

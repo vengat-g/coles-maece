@@ -58,11 +58,3 @@ extension Recipe {
     }
     
 }
-
-extension Recipe {
-    
-    var thumbnailURL: URL? {
-        URL(string: "https://coles.com.au/\(thumbnail)")
-    }
-    
-}

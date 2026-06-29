@@ -7,9 +7,7 @@
 
 import Foundation
 
-@MainActor
-@Observable
-final class RecipeDetailsViewModel {
+struct RecipeDetailsViewModel {
     
     private let recipe: Recipe
     
