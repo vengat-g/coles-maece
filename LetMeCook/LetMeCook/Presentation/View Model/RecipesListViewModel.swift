@@ -83,7 +83,7 @@ extension RecipesListViewModel {
         case unableToFetchRecipes
     }
     
-    enum ImagePhase {
+    enum ImagePhase: Equatable {
         case failed
         case fetched(Data)
     }
