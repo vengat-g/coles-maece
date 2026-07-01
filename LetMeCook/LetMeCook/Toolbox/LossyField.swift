@@ -19,3 +19,5 @@ struct LossyField<T: Decodable>: Decodable {
         self.wrappedValue = try? container.decode(T.self)
     }
 }
+
+extension LossyField: Sendable where T: Sendable {}

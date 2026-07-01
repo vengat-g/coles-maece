@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - Domain Responses
 
-struct RecipeListResponse: Decodable {
+struct RecipeListResponse: Decodable, Sendable {
     let recipes: [RecipeResponse]
 }
 
-struct RecipeResponse: Decodable {
+struct RecipeResponse: Decodable, Sendable {
     
     let dynamicTitle: String
     

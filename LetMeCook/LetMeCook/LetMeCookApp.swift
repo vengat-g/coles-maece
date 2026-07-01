@@ -22,7 +22,7 @@ struct LetMeCookApp: App {
 
 struct LetMeCookRootView: View {
     
-    @State private var viewModel = RecipesListViewModel(service: FileRecipeService())
+    @State private var viewModel = RecipesListViewModel(service: DefaultRecipeService())
     
     var body: some View {
         RecipeListView(viewModel: viewModel)
