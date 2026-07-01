@@ -39,16 +39,16 @@ final class RecipesListViewModel {
     
     func fetchRecipes() async {
         isLoading = true
-        defer { isLoading = false }
         do {
             recipes = try await service.fetchAll()
             groupedRecipes = recipes.groupByServes()
             recipesByServeSize = groupedRecipes.keys.sorted()
-            await loadImages()
         } catch {
             // log
             errorMessage = "Something went wrong. Please try again."
         }
+        isLoading = false
+        await loadImages()
     }
     
     func imageData(for id: Recipe.ID) -> Data? {
