@@ -15,30 +15,11 @@ final class DefaultImageDataLoader: ImageDataLoader {
         self.session = session
     }
     
-    func loadImages<Request: ImageRequest, Response: ImageResponse>(_ requests: [Request]) async throws -> [Response] where Request.ID == Response.ID {
-        try await withThrowingTaskGroup(returning: [Response].self) { group in
-            
-            for request in requests {
-                group.addTask {
-                    let response: Response = try await self.loadImage(request)
-                    return response
-                }
-            }
-            
-            var results = [Response]()
-            for try await response in group {
-                results.append(response)
-            }
-            
-            return results
-        }
-    }
-    
-    func loadImage<Request: ImageRequest, Response: ImageResponse>(_ request: Request) async throws -> Response where Request.ID == Response.ID {
-        let requestURL = try makeRequestURL(request.url)
+    func fetchImage(from url: URL?) async throws -> Data {
+        let requestURL = try makeRequestURL(url)
         let (data, urlResponse) = try await session.data(from: requestURL)
         try validate(urlResponse: urlResponse)
-        return Response(id: request.id, data: data)
+        return data
     }
     
 }

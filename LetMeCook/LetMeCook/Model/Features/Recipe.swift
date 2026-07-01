@@ -9,8 +9,6 @@ import Foundation
 
 struct Recipe: Sendable {
     
-    let id: UUID
-    
     let title: String
     let description: String?
     let thumbnail: String
@@ -23,36 +21,39 @@ struct Recipe: Sendable {
 
 extension Recipe: Hashable, Identifiable {
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+    struct ID: Hashable, Sendable {
+        let rawValue: String
+        init(title: String, thumbnail: String) {
+            self.rawValue = "\(title)-\(thumbnail)-identifier"
+        }
     }
     
-    static func == (lhs: Recipe, rhs: Recipe) -> Bool {
-        lhs.id == rhs.id
+    var id: ID {
+        Recipe.ID(title: title, thumbnail: thumbnail)
     }
     
 }
 
 extension Recipe {
     
-    struct Details {
+    struct Details: Hashable {
         let serves: ServesDetail
         let prep: PrepDetail
         let cooking: CookingDetail
     }
     
-    struct ServesDetail {
+    struct ServesDetail: Hashable {
         let label: String
         let value: String
     }
     
-    struct PrepDetail {
+    struct PrepDetail: Hashable {
         let label: String
         let value: String
         let notes: String?
     }
     
-    struct CookingDetail {
+    struct CookingDetail: Hashable {
         let label: String
         let value: String
     }

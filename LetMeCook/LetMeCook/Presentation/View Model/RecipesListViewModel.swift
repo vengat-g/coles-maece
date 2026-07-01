@@ -23,7 +23,6 @@ final class RecipesListViewModel {
     private(set) var recipes: [Recipe] = []
     private(set) var groupedRecipes: [String: [Recipe]] = [:]
     private(set) var recipesByServeSize: [String] = []
-    private(set) var imagesResponse: [RecipeImageResponse] = [] // Mark it by states - loading, success, failed
     private(set) var imageDataLookup: [Recipe.ID: ImagePhase] = [:]
     
     // MARK: - Injected
@@ -89,49 +88,27 @@ extension RecipesListViewModel {
         case fetched(Data)
     }
     
-    private func loadImages() async {
-        let requests = recipes.map { recipe in
-            RecipeImageRequest(id: recipe.id, url: recipe.thumbnailURL)
-        }
-        do {
-            imagesResponse = try await imageLoader.loadImages(requests)
-        } catch {
-            imagesResponse = []
-        }
-    }
-    
     func fetchImages() async {
-        let requests = recipes.map {
-            RecipeImageRequest(id: $0.id, url: $0.thumbnailURL)
-        }
-        await withTaskGroup(of: (UUID, RecipeImageResponse?).self) { group in
-            for request in requests {
+        typealias ImageResponse = (id: Recipe.ID, data: Data?)
+        await withTaskGroup(of: ImageResponse.self) { group in
+            
+            for recipe in recipes {
                 group.addTask {
-                    let response: RecipeImageResponse? = try? await self.imageLoader.loadImage(request)
-                    return (request.id,  response)
+                    let data = try? await self.imageLoader.fetchImage(from: recipe.thumbnailURL)
+                    return await (id: recipe.id, data: data)
                 }
             }
             
             for await response in group {
-                if let data = response.1?.data {
-                    imageDataLookup[response.0] = .fetched(data)
+                if let data = response.data {
+                    imageDataLookup[response.id] = .fetched(data)
                 } else {
-                    imageDataLookup[response.0] = .failed
+                    imageDataLookup[response.id] = .failed
                 }
             }
         }
     }
     
-}
-
-struct RecipeImageRequest: ImageRequest {
-    let id: Recipe.ID
-    let url: URL?
-}
-
-struct RecipeImageResponse: ImageResponse {
-    let id: Recipe.ID
-    let data: Data
 }
 
 extension Recipe {

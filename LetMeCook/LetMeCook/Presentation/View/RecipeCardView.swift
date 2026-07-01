@@ -15,31 +15,21 @@ struct RecipeCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            switch recipeImagePhase {
-            case .some:
-                if case let .fetched(data) = recipeImagePhase,
-                   let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
-                        .clipShape(RoundedRectangle(cornerRadius: 24))
-                } else {
-                    Image(systemName: "fork.knife.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                }
-            case .none:
-                Color(.systemGray)
+            if case let .fetched(data) = recipeImagePhase,
+               let uiImage = UIImage(data: data) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
-                    .overlay {
-                        ProgressView()
-                    }
+            } else {
+                Image(systemName: "fork.knife.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
             }
-
+            
             Text(cardTitle)
                 .foregroundStyle(.red)
                 .font(.caption)

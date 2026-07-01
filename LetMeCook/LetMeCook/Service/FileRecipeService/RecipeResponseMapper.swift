@@ -10,7 +10,6 @@ import Foundation
 extension Recipe {
     
     init(from response: RecipeResponse) {
-        self.id = UUID()
         self.title = response.dynamicTitle
         self.description = response.dynamicDescription
         self.thumbnail = response.dynamicThumbnail
