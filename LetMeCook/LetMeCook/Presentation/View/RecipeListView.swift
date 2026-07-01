@@ -29,7 +29,7 @@ struct RecipeListView: View {
                                         RecipeCardView(
                                             cardTitle: viewModel.cardLabel,
                                             recipeTitle: recipe.title,
-                                            recipeImageData: viewModel.imageData(for: recipe.id)
+                                            recipeImagePhase: viewModel.imageData(for: recipe.id)
                                         )
                                     }
                                     .buttonStyle(.plain)
@@ -53,10 +53,8 @@ struct RecipeListView: View {
                 }
             }
         }
-        .onAppear {
-            Task {
-                await viewModel.fetchRecipes()
-            }
+        .task {
+            await viewModel.fetchRecipes()
         }
     }
 }

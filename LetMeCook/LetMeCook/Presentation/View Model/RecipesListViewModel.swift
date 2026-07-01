@@ -24,6 +24,7 @@ final class RecipesListViewModel {
     private(set) var groupedRecipes: [String: [Recipe]] = [:]
     private(set) var recipesByServeSize: [String] = []
     private(set) var imagesResponse: [RecipeImageResponse] = [] // Mark it by states - loading, success, failed
+    private(set) var imageDataLookup: [Recipe.ID: ImagePhase] = [:]
     
     // MARK: - Injected
     
@@ -38,6 +39,8 @@ final class RecipesListViewModel {
     // MARK: - Public APIs
     
     func fetchRecipes() async {
+        guard recipes.isEmpty else { return }
+        
         isLoading = true
         do {
             recipes = try await service.fetchAll()
@@ -48,13 +51,11 @@ final class RecipesListViewModel {
             errorMessage = "Something went wrong. Please try again."
         }
         isLoading = false
-        await loadImages()
+        await fetchImages()
     }
     
-    func imageData(for id: Recipe.ID) -> Data? {
-        imagesResponse
-            .first { res in res.id == id }?
-            .data
+    func imageData(for id: Recipe.ID) -> ImagePhase? {
+        imageDataLookup[id]
     }
     
     func selectedRecipeDetails(for recipeID: Recipe.ID) throws -> RecipeDetailsViewModel {
@@ -83,6 +84,11 @@ extension RecipesListViewModel {
         case unableToFetchRecipes
     }
     
+    enum ImagePhase {
+        case failed
+        case fetched(Data)
+    }
+    
     private func loadImages() async {
         let requests = recipes.map { recipe in
             RecipeImageRequest(id: recipe.id, url: recipe.thumbnailURL)
@@ -91,6 +97,28 @@ extension RecipesListViewModel {
             imagesResponse = try await imageLoader.loadImages(requests)
         } catch {
             imagesResponse = []
+        }
+    }
+    
+    func fetchImages() async {
+        let requests = recipes.map {
+            RecipeImageRequest(id: $0.id, url: $0.thumbnailURL)
+        }
+        await withTaskGroup(of: (UUID, RecipeImageResponse?).self) { group in
+            for request in requests {
+                group.addTask {
+                    let response: RecipeImageResponse? = try? await self.imageLoader.loadImage(request)
+                    return (request.id,  response)
+                }
+            }
+            
+            for await response in group {
+                if let data = response.1?.data {
+                    imageDataLookup[response.0] = .fetched(data)
+                } else {
+                    imageDataLookup[response.0] = .failed
+                }
+            }
         }
     }
     

@@ -11,22 +11,33 @@ struct RecipeCardView: View {
     
     let cardTitle: String
     let recipeTitle: String
-    let recipeImageData: Data?
+    let recipeImagePhase: RecipesListViewModel.ImagePhase?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            if let data = recipeImageData, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+            switch recipeImagePhase {
+            case .some:
+                if case let .fetched(data) = recipeImagePhase,
+                   let uiImage = UIImage(data: data) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
+                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                } else {
+                    Image(systemName: "fork.knife.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
+            case .none:
+                Color(.systemGray)
                     .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
-            } else {
-                Image(systemName: "fork.knife.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .overlay {
+                        ProgressView()
+                    }
             }
 
             Text(cardTitle)
@@ -45,6 +56,6 @@ struct RecipeCardView: View {
     RecipeCardView(
         cardTitle: "RECIPE",
         recipeTitle: StubRecipes.mockOne.title,
-        recipeImageData: nil
+        recipeImagePhase: .failed
     )
 }
