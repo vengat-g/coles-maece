@@ -11,21 +11,23 @@ struct RecipeCardView: View {
     
     let cardTitle: String
     let recipeTitle: String
-    let recipeImageURL: URL?
+    let recipeImageData: Data?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            AsyncImage(url: recipeImageURL) { image in
-                image.resizable()
+            if let data = recipeImageData, let uiImage = UIImage(data: data) {
+                Image(uiImage: uiImage)
+                    .resizable()
                     .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Color(.systemGray5)
-                    .overlay {
-                        ProgressView()
-                    }
+                    .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+            } else {
+                Image(systemName: "fork.knife.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
             }
-            .frame(maxWidth: .infinity, minHeight: 180, maxHeight: 180)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
 
             Text(cardTitle)
                 .foregroundStyle(.red)
@@ -43,6 +45,6 @@ struct RecipeCardView: View {
     RecipeCardView(
         cardTitle: "RECIPE",
         recipeTitle: StubRecipes.mockOne.title,
-        recipeImageURL: URL(string: "https://coles.com.au/\(StubRecipes.mockOne.thumbnail)")
+        recipeImageData: nil
     )
 }

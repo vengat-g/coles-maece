@@ -408,4 +408,15 @@ enum StubRecipes {
         }
         """
     
+    static let thumbnails = [
+        "/content/dam/coles/inspire-create/thumbnails/Tomato-and-bread-salad-480x288.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/Pork-ragu-480x288.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/Panzanella-salad-480x280.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/whats-for-dinner-live-thumbnails/Tasia-and-Gracia-Hainanese-Chicken-480x288.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/cauliflower-soup--480x288.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/Lamb-shank-ragu-with-pappardelle-480x288.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/Lamb-and-hasselback-pumpkin-480x288.jpg",
+        "/content/dam/coles/inspire-create/thumbnails/Gnocchi-with-pumpkin-and-whipped-ricotta-480x288.jpg"
+    ]
+    
 }

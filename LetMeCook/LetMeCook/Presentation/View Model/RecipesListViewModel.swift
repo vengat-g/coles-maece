@@ -23,13 +23,16 @@ final class RecipesListViewModel {
     private(set) var recipes: [Recipe] = []
     private(set) var groupedRecipes: [String: [Recipe]] = [:]
     private(set) var recipesByServeSize: [String] = []
+    private(set) var imagesResponse: [RecipeImageResponse] = [] // Mark it by states - loading, success, failed
     
     // MARK: - Injected
     
     private let service: RecipeService
+    private let imageLoader: ImageDataLoader
     
-    init(service: RecipeService) {
+    init(service: RecipeService, imageLoader: ImageDataLoader = DefaultImageDataLoader()) {
         self.service = service
+        self.imageLoader = imageLoader
     }
     
     // MARK: - Public APIs
@@ -41,10 +44,17 @@ final class RecipesListViewModel {
             recipes = try await service.fetchAll()
             groupedRecipes = recipes.groupByServes()
             recipesByServeSize = groupedRecipes.keys.sorted()
+            await loadImages()
         } catch {
             // log
             errorMessage = "Something went wrong. Please try again."
         }
+    }
+    
+    func imageData(for id: Recipe.ID) -> Data? {
+        imagesResponse
+            .first { res in res.id == id }?
+            .data
     }
     
     func selectedRecipeDetails(for recipeID: Recipe.ID) throws -> RecipeDetailsViewModel {
@@ -73,6 +83,27 @@ extension RecipesListViewModel {
         case unableToFetchRecipes
     }
     
+    private func loadImages() async {
+        let requests = recipes.map { recipe in
+            RecipeImageRequest(id: recipe.id, url: recipe.thumbnailURL)
+        }
+        do {
+            imagesResponse = try await imageLoader.loadImages(requests)
+        } catch {
+            imagesResponse = []
+        }
+    }
+    
+}
+
+struct RecipeImageRequest: ImageRequest {
+    let id: Recipe.ID
+    let url: URL?
+}
+
+struct RecipeImageResponse: ImageResponse {
+    let id: Recipe.ID
+    let data: Data
 }
 
 extension Recipe {

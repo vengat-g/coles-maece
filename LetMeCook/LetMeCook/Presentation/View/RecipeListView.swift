@@ -29,7 +29,7 @@ struct RecipeListView: View {
                                         RecipeCardView(
                                             cardTitle: viewModel.cardLabel,
                                             recipeTitle: recipe.title,
-                                            recipeImageURL: recipe.thumbnailURL
+                                            recipeImageData: viewModel.imageData(for: recipe.id)
                                         )
                                     }
                                     .buttonStyle(.plain)
@@ -57,9 +57,6 @@ struct RecipeListView: View {
             Task {
                 await viewModel.fetchRecipes()
             }
-        }
-        .refreshable {
-            await viewModel.fetchRecipes()
         }
     }
 }
