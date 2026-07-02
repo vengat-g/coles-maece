@@ -5,7 +5,8 @@
 |iOS App | Swift, SwiftUI   |
 |Unit Tests | Swift Tests |
 |UI Test | XCTest |
-|IDE | Xcode 27 - beta, macOS Golden Gate 27.0||
+|IDE | Xcode 26/27 - beta, macOS Golden Gate 27.0 |
+| Deployment version | iOS 17.6 and onwards |
 |AI Tools | Claude Code - [ App, Xcode ]|  |
 
 ---
